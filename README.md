@@ -21,7 +21,5 @@ python tools/data/build_file_list.py ${DATASET} ${SRC_FOLDER} [--rgb-prefix ${RG
     [--subset ${SUBSET}] [--level ${LEVEL}] [--format ${FORMAT}] [--out-root-path ${OUT_ROOT_PATH}] \
     [--seed ${SEED}] [--shuffle]
     
-    python tools/data/build_file_list.py ucf101 /home/xianguo/framesoutput/TSNInput [--rgb-prefix ${RGB_PREFIX}] \
-    [--flow-x-prefix ${FLOW_X_PREFIX}] [--flow-y-prefix ${FLOW_Y_PREFIX}] [--num-split ${NUM_SPLIT}] \
-    [--subset ${SUBSET}] [--level ${LEVEL}] [--format ${FORMAT}] [--out-root-path ${OUT_ROOT_PATH}] \
-    [--seed ${SEED}] [--shuffle]
+    python tools/data/build_file_list.py ucf101 /home/xianguo/framesoutput/TSNInput  \
+     --level 2 --out-root-path /home/xianguo/save/filelist 
