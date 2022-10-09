@@ -1,10 +1,16 @@
 python main.py ucf101 RGB ucf101_rgb_train_list.txt ucf101_rgb_val_list.txt     --arch BNInception --num_segments 3 \   --gd 20 --lr 0.001 --lr_steps 30 60 --epochs 80 \    -b 128 -j 8 --dropout 0.8 \    --snapshot_pref ucf101_bninception_ 
 
-python main.py ucf101 RGB ucf101_rgb_train_list.txt ucf101_rgb_val_list.txt \
-   --arch BNInception --num_segments 3 \
+python /home/xianguo/tsn-pytorch/main.py ucf101 RGB /home/xianguo/mmaction2-master/data/ucf101/ucf101_train_split_1_rawframes.txt /home/xianguo/mmaction2-master/data/ucf101/ucf101_val_split_1_rawframes.txt \
+   --arch BNInception --num_segments 15 \
    --gd 20 --lr 0.001 --lr_steps 30 60 --epochs 80 \
    -b 128 -j 8 --dropout 0.8 \
    --snapshot_pref ucf101_bninception_ 
+   
+   python /home/xianguo/tsn-pytorch/main.py ucf101 Flow ucf101_rgb_train_list.txt ucf101_rgb_val_list.txt \
+   --arch BNInception --num_segments 3 \
+   --gd 20 --lr 0.001 --lr_steps 190 300 --epochs 340 \
+   -b 128 -j 4 --dropout 0.7 \
+   --snapshot_pref ucf101_bninception_ --flow_pref flow_  
    
    python main.py ucf101 RGB /home/xianguo//tsn-pytorch/ucf101_rgb_train_list.txt  /home/xianguo//tsn-pytorch/ucf101_rgb_val_list.txt    --arch BNInception --num_segments 3    --gd 20 --lr 0.001 --lr_steps 30 60 --epochs 80    -b 128 -j 8 --dropout 0.8    --snapshot_pref ucf101_bninception_ 
 
@@ -12,8 +18,8 @@ python build_rawframes.py ${SRC_FOLDER} ${OUT_FOLDER} [--task ${TASK}] [--level 
     [--num-worker ${NUM_WORKER}] [--flow-type ${FLOW_TYPE}] [--out-format ${OUT_FORMAT}] \
     [--ext ${EXT}] [--new-width ${NEW_WIDTH}] [--new-height ${NEW_HEIGHT}] [--new-short ${NEW_SHORT}] \
     [--resume] [--use-opencv] [--mixed-ext]
-python build_rawframes.py /home/xianguo/save/TSNDataSet/TSN视频数据集 /home/xianguo/framesoutput/TSNInput --task flow --level 2 \
-    --num-worker 8 --flow-type tvl1 \
+python build_rawframes.py /home/xianguo/save/TSNDataSet/TSN视频数据集 /home/xianguo/framesoutput/TSNInput --task rgb --level 2 \
+    --num-worker 8  \
     --resume --mixed-ext
 
 python tools/data/build_file_list.py ${DATASET} ${SRC_FOLDER} [--rgb-prefix ${RGB_PREFIX}] \
