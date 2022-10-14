@@ -24,9 +24,9 @@ python build_rawframes.py ${SRC_FOLDER} ${OUT_FOLDER} [--task ${TASK}] [--level 
     [--num-worker ${NUM_WORKER}] [--flow-type ${FLOW_TYPE}] [--out-format ${OUT_FORMAT}] \
     [--ext ${EXT}] [--new-width ${NEW_WIDTH}] [--new-height ${NEW_HEIGHT}] [--new-short ${NEW_SHORT}] \
     [--resume] [--use-opencv] [--mixed-ext]
-python build_rawframes.py /home/xianguo/save/TSNDataSet/TSN视频数据集 /home/xianguo/framesoutput/TSNInput --task rgb --level 2 \
-    --num-worker 8  \
-    --resume --mixed-ext
+CUDA_VISIBLE_DEVICES=1 python build_rawframes.py /home/xianguo/save/BMNDataset1 /home/xianguo/framesoutput/BMNDataset --task flow --level 1 \
+    --num-worker 1 --flow-type tvl1  \
+ --mixed-ext
 
 python tools/data/build_file_list.py ${DATASET} ${SRC_FOLDER} [--rgb-prefix ${RGB_PREFIX}] \
     [--flow-x-prefix ${FLOW_X_PREFIX}] [--flow-y-prefix ${FLOW_Y_PREFIX}] [--num-split ${NUM_SPLIT}] \
